@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/CSS/reset.css">
+    <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/CSS/style.css">
+
+    <title>Music Modus</title>
+</head>
+
+<body>
+
+    <!-- /********************************************** Header *****************************************************/ -->
+
+    <header class="container-fluid header-container">
+
+        <h1>Music Modus</h1>
+        <h3>Keeping your loved one's ears safe so that you don't have to</h3>
+
+        <form class="border border-light p-5 container form-container col-xs-12 col-m-8 col-xl-6">
+
+            <input type="text" id="artistInput" class="form-control mb-4" placeholder="Artist">
+            <input type="text" id="songTitleInput" class="form-control mb-4" placeholder="Song Title">
+            <button id="submitButton" class="btn btn-info btn-block my-4 button" type="submit">Submit</button>
+
+        </form>
+
+    </header>
+
+    <!-- /********************************************** Artist Info *****************************************************/ -->
+
+    <div class="container-fluid artist-info-container">
+        <div class="row artist-container">
+            <!-- Artist Photo -->
+            <div id="artistPhotoContainer" class="col-xs-12 col-md-3 col-xl-3 artist-info">
+                <div class="container-fluid heading-info">
+                    <h2 id="artistName">Artist's Name</h2>
+                </div>
+                <div class="image-cropper" style="background-image: url('assets/images/yola-ayntk.jpg');"></div>
+            </div>
+            <!-- Artist Biography -->
+            <div class="col-xs-12 col-md-6 col-xl-5 artist-info">
+                <div class="container-fluid heading-info">
+                    <h2>Artist Info:</h2>
+                </div>
+                <div class="text-container">
+                    <p id="artistBio" class="artistText">
+                        Peter Gene Hernandez (born October 8, 1985), known
+                        professionally
+                        as Bruno Mars, is an
+                        American
+                        singer, songwriter, record producer, multi-instrumentalist, and dancer. He is known for his
+                        stage
+                        performances, retro showmanship, and for performing in a wide range of musical styles, including
+                        R&B, funk, pop, soul, reggae, hip hop, and rock. Mars is accompanied by his band, The Hooligans,
+                        who
+                        play a variety of instruments, such as electric guitar, bass, piano, keyboards, drums, and
+                        horns,
+                        and also serve as backup singers and dancers.</p>
+                </div>
+            </div>
+            <!-- Mood Meter -->
+            <div id="songMeter" class="col-xs-12 col-md-3 col-xl-4 artist-info">
+                <div class="container-fluid heading-info">
+                    <h2>Mood Meter:</h2>
+                </div>
+                <div class="meter">
+                    <img src="assets/images/mood meter.png" alt="mood meter" width="250" height="250">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- /********************************************** Lyrics *****************************************************/ -->
+
+
+    <div class="container-fluid lyrics-container">
+        <div class="row">
+
+            <div class="container col-xs-12 col-md-6 col-xl-5 lyrics">
+                <h2>Lyrics</h2>
+                <p id="lyricText"></p>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src=""></script>
+    <script src="events.js"></script>
+</body>
+
+</html>
