@@ -7,13 +7,13 @@ var artistNameArray = [];
 var songTitleArray = [];
 
 
-//Function to display artist's name, photo, and biography
-function displayArtistInfo() {
+function displayArtistInfo(songTitle, artist) {
+
 
     var artistN = $(this).attr("data-name");
     var queryURL = "https://www.theaudiodb.com/api/v1/json/1/search.php?s=" + artistNameArray;
     
-
+    console.log (artistName);
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -29,7 +29,29 @@ function displayArtistInfo() {
         console.log(response.artists[0].strBiographyEN);
         console.log(response.artists[0].strArtistThumb);
 
+        queryURL = `https://api.lyrics.ovh/v1/${artist}/${songTitle}`;
+        console.log("query", queryURL)
 
+        $.ajax({
+         url: queryURL,
+          method: "GET"
+      }).then(function (responseLyrics) {
+        console.log("lyricsresponse: ", responseLyrics)
+       
+        queryURL = "https://www.purgomalum.com/service/plain?text=" + responseLyrics.lyrics;
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+      }).then(function (response) {
+        console.log ("censored response", response)
+        $("#lyricText").attr("dataCensored", response)
+        $("#lyricText").attr("dataUncensored", responseLyrics.lyrics)
+        $("#lyricText").attr("state", "uncensored")
+        $("#lyricText").text(responseLyrics.lyrics)
+        })
+
+      })
         
     });   
 }
@@ -73,11 +95,13 @@ $("#submitButton").on("click", function(event) {
     var artist = $("#artistInput").val().trim();
     var songTitle = $("#songTitleInput").val().trim();
 
+
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
       $(".bg-modal").css("display", "flex");
 
     }
+
 
     $(".image-cropper").css("background-image", "url()");
     $("#artistBio").empty();
@@ -91,10 +115,24 @@ $("#submitButton").on("click", function(event) {
     songTitleArray.push(songTitle);
 
     console.log("You selected the following artist: " + artist);
-    displayArtistInfo();
-    displayLyrics();
+    displayArtistInfo(songTitle, artist);
     
 })
+
+$("#profanityFilter").on("click", function (){
+  console.log("clicked")
+  var state = $("#lyricText").attr("state")
+  if (state === "uncensored"){
+    $("#lyricText").attr("state", "censored")
+    var censoredText = $("#lyricText").attr("dataCensored")
+    $("#lyricText").text(censoredText)
+  } else {
+    $("#lyricText").attr("state", "uncensored")
+    var uncensoredText = $("#lyricText").attr("dataUncensored")
+    $("#lyricText").text(uncensoredText)
+  }
+})
+
 
 //On click command to close the modal
 $(".closeButton").on("click", function(event) {
@@ -103,6 +141,7 @@ $(".closeButton").on("click", function(event) {
   $(".bg-modal").css("display", "none");
 
 });
+
 
 
 
