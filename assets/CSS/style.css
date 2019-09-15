@@ -6,7 +6,6 @@ h1 {
     font-size: 8em;
     color: #fff;
     text-align: center;
-    
 }
 
 h2 {
@@ -25,11 +24,10 @@ h3 {
 
 p {
     color: #18dcff;
-    text-align: center; 
+    text-align: center;
     font-size: 1em;
     font-family: 'Lora', serif;
     overflow: auto;
-
 }
 
 /*************** Header and form ***************/
@@ -39,7 +37,6 @@ p {
     width: 100%;
     background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
     clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-
 }
 
 .form-container {
@@ -47,17 +44,86 @@ p {
     border: solid #7d5fff 2px;
     z-index: 2;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 #submitButton {
     background-color: #18dcff;
     max-width: 200px;
     margin: 0 auto;
-    
 }
+
 .fas {
     margin-right: 10px;
+}
+
+/***************Toggle Button***************/
+
+.filter {
+    display: inline-block;
+    color: #495057;
+    align-content: center;
+    padding-left: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #18dcff;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #18dcff;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
 
 /***************Artist Info Bar***************/
@@ -66,7 +132,7 @@ p {
 
 .image-cropper {
     width: 80%;
-    height: 80%;
+    height: 300px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
@@ -79,26 +145,35 @@ p {
 .image-cropper img {
     margin: 0 auto;
     overflow: auto;
+    height: 300px;
 }
 
 .artistPhoto {
-  display: inline;
-  margin: 0 auto;
-  margin-left: -25%;
-  height: 100%;
-  width: auto;
+    display: inline;
+    margin: 0 auto;
+    margin-left: -25%;
+    height: 300px;
+    width: auto;
+}
+
+#artistPhotoContainer {
+    height: 320px;
+    overflow: hidden;
 }
 
 /* Artist Bio Info */
 
 .artist-info {
     width: 100%;
-    height: 50vh;    
+    height: 320px;
+    overflow: hidden;
 }
 
 .artistText {
     text-align: left;
     padding-left: 10px;
+    height: 300px;
+    overflow: auto;
 }
 
 .text-container {
@@ -109,8 +184,9 @@ p {
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    
+    height: 350px;
 }
+
 .heading-info {
     background: linear-gradient(-45deg, #18dcff, #32ff7e);
     width: 100%;
@@ -131,7 +207,7 @@ p {
     padding: 30px;
     margin: 30px auto;
     z-index: 10;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .lyrics-text {
@@ -142,7 +218,7 @@ p {
 
 .lyrics h2 {
     color: #57606f;
-    text-align: center;  
+    text-align: center;
 }
 
 .text-container {
@@ -153,9 +229,8 @@ p {
     height: 150vh;
     width: 100%;
     background: linear-gradient(-45deg, #18dcff, #32ff7e);
-    clip-path: polygon(0 0, 85% 0, 100% 100%, 15% 100%);    
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 15% 100%);
 }
-
 
 /*Media Queries*/
 
@@ -166,16 +241,12 @@ p {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
     }
-    
     .lyrics-container {
         height: 100vh;
         width: 100%;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        background: linear-gradient(-45deg, #18dcff, #32ff7e),
-        linear-gradient(transparent, white);
-        
+        background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
     }
-    
     h1 {
         font-size: 4em;
         padding-top: 40px;

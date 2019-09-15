@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +17,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <h1>Music's Modus</h1>
-=======
 
     <!-- /********************************************** Header *****************************************************/ -->
 
@@ -29,8 +28,14 @@
 
         <form class="border border-light p-5 container form-container col-xs-12 col-m-8 col-xl-6">
 
-            <input type="text" id="artistInput" class="form-control mb-4" placeholder="Artist">
-            <input type="text" id="songTitleInput" class="form-control mb-4" placeholder="Song Title">
+            <input type="text" id="artistInput" class="form-control mb-4" name="artist" placeholder="Artist">
+            <input type="text" id="songTitleInput" class="form-control mb-4" name="song" placeholder="Song Title">
+            <label class="switch">
+                <input id="profanityFilter" type="checkbox" placehoder="Profanity Filter">
+                <span class="slider round"></span>
+            </label>
+            <label class="filter" for="profanity Filter">Profanity Filter</label>
+
             <button id="submitButton" class="btn btn-info btn-block my-4 button" type="submit">Submit</button>
 
         </form>
@@ -46,10 +51,10 @@
                 <div class="container-fluid heading-info">
                     <h2 id="artistName">Artist's Name</h2>
                 </div>
-                <div class="image-cropper" style="background-image: url('assets/images/yola-ayntk.jpg');"></div>
+                <div class="image-cropper" style="background-image: url('assets/images/yola-ayntk.jpg'); background-size: 300px 300px;"></div>
             </div>
             <!-- Artist Biography -->
-            <div class="col-xs-12 col-md-6 col-xl-5 artist-info">
+            <div id="artistInfo" class="col-xs-12 col-md-6 col-xl-5 artist-info">
                 <div class="container-fluid heading-info">
                     <h2>Artist Info:</h2>
                 </div>
@@ -108,7 +113,15 @@
         crossorigin="anonymous"></script>
     <script src=""></script>
     <script src="events.js"></script>
->>>>>>> 24c444c676219ce03b84241c8a679ee358c28e4d
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <script src="assets/JavaScript/events.js"></script>
+    <script src="assets/JavaScript/app.js"></script>
 </body>
 
 </html>
