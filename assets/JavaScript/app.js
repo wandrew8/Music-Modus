@@ -1,5 +1,4 @@
 //Variables
-
 var artist = $("#artistInput").val().trim();
 var songTitle = $("#songTitleInput").val().trim();
 
@@ -106,7 +105,10 @@ function displayLyrics() {
 
       $("#lyricText").append(response.lyrics)
 
+    if (response.lyrics === "error") {
+      $(".bg-modal").css("display", "flex");
 
+    }
       
   });   
 }
@@ -123,6 +125,8 @@ $("#submitButton").on("click", function(event) {
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
       $(".bg-modal").css("display", "flex");
+
+    
 
     }
 
@@ -141,21 +145,21 @@ $("#submitButton").on("click", function(event) {
     console.log("You selected the following artist: " + artist);
     displayArtistInfo(songTitle, artist);
     
+    $("#profanityFilter").on("click", function (){
+      console.log("clicked")
+      var state = $("#lyricText").attr("state")
+      if (state === "uncensored"){
+        $("#lyricText").attr("state", "censored")
+        var censoredText = $("#lyricText").attr("dataCensored")
+        $("#lyricText").text(censoredText)
+      } else {
+        $("#lyricText").attr("state", "uncensored")
+        var uncensoredText = $("#lyricText").attr("dataUncensored")
+        $("#lyricText").text(uncensoredText)
+      }
+    })
 })
 
-$("#profanityFilter").on("click", function (){
-  console.log("clicked")
-  var state = $("#lyricText").attr("state")
-  if (state === "uncensored"){
-    $("#lyricText").attr("state", "censored")
-    var censoredText = $("#lyricText").attr("dataCensored")
-    $("#lyricText").text(censoredText)
-  } else {
-    $("#lyricText").attr("state", "uncensored")
-    var uncensoredText = $("#lyricText").attr("dataUncensored")
-    $("#lyricText").text(uncensoredText)
-  }
-})
 
 
 //On click command to close the modal
@@ -166,7 +170,12 @@ $(".closeButton").on("click", function(event) {
 
 });
 
+$(".closeButton").on("click", function(event) {
+  event.preventDefault();
 
+  $(".bg-modal2").css("display", "none");
+
+});
 
 
 
@@ -175,9 +184,10 @@ var tl = new TimelineMax({onUpdate:updatePercentage});
 var tl2 = new TimelineMax();
 const controller = new ScrollMagic.Controller();
 
-tl.from('#artistPhotoContainer', 0.8, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#artistInfo', 0.6, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#songMeter', 0.5, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#songMeter', 1, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistPhotoContainer', 2, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#lyrics', 3, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistInfo', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
 
 
 const scene = new ScrollMagic.Scene({

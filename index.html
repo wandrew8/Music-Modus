@@ -18,6 +18,7 @@
 
 <body>
 
+
     <!-- /********************************************** Header *****************************************************/ -->
 
     <header class="container-fluid header-container">
@@ -46,36 +47,15 @@
     <div class="container-fluid artist-info-container">
         <div class="row artist-container">
             <!-- Artist Photo -->
-            <div id="artistPhotoContainer" class="col-xs-12 col-md-3 col-xl-3 artist-info">
+            <div id="artistPhotoContainer" class="col-xs-12 col-md-4 col-xl-4 artist-info">
                 <div class="container-fluid heading-info">
                     <h2 id="artistName">Artist's Name</h2>
                 </div>
                 <div class="image-cropper"
-                    style="background-image: url('assets/images/yola-ayntk.jpg'); background-size: 300px 300px;"></div>
-            </div>
-            <!-- Artist Biography -->
-            <div id="artistInfo" class="col-xs-12 col-md-6 col-xl-5 artist-info">
-                <div class="container-fluid heading-info">
-                    <h2>Artist Info:</h2>
-                </div>
-                <div class="text-container">
-                    <p id="artistBio" class="artistText">
-                        Peter Gene Hernandez (born October 8, 1985), known
-                        professionally
-                        as Bruno Mars, is an
-                        American
-                        singer, songwriter, record producer, multi-instrumentalist, and dancer. He is known for his
-                        stage
-                        performances, retro showmanship, and for performing in a wide range of musical styles, including
-                        R&B, funk, pop, soul, reggae, hip hop, and rock. Mars is accompanied by his band, The Hooligans,
-                        who
-                        play a variety of instruments, such as electric guitar, bass, piano, keyboards, drums, and
-                        horns,
-                        and also serve as backup singers and dancers.</p>
-                </div>
+                    style="background-image: url('assets/images/drake.jpg'); background-size: 300px 300px;"></div>
             </div>
             <!-- Mood Meter -->
-            <div id="songMeter" class="col-xs-12 col-md-3 col-xl-4 artist-info">
+            <div id="songMeter" class="col-xs-12 col-md-8 col-xl-8 artist-info">
                 <div class="container-fluid heading-info">
                     <h2>Mood Meter:</h2>
                 </div>
@@ -92,34 +72,56 @@
     <div class="container-fluid lyrics-container">
         <div class="row">
 
-            <div class="container col-xs-12 col-md-6 col-xl-5 lyrics">
+            <!-- Artist Biography -->
+            <div class="col-xs-0 col-md-1 col-xl-1"></div>
+            <div id="artistInfo" class="col-xs-12 col-md-4 col-xl-4 artist-info">
+                <div class="container-fluid heading-info">
+                    <h2>Artist Info:</h2>
+                </div>
+                <div class="text-container">
+                    <p id="artistBio" class="artistText">
+                        Peter Gene Hernandez (born October 8, 1985), known
+                        professionally
+                        as Bruno Mars, is an
+                        American
+                        singer, songwriter, record producer, multi-instrumentalist, and dancer. He is known for his
+                        stage
+                        performances, retro showmanship, and for performing in a wide range of musical styles, including
+                        R&B, funk, pop, soul, reggae, hip hop, and rock. Mars is accompanied by his band, The Hooligans,
+                        who
+                        play a variety of instruments, such as electric guitar, bass, piano, keyboards, drums, and
+                        horns,
+                        and also serve as backup singers and dancers.
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-0 col-md-1 col-xl-1"></div>
+            <!-- Lyrics  -->
+            <div id="lyrics" class="container col-xs-12 col-md-5 col-xl-5 lyrics">
                 <div class="container-fluid heading-info">
                     <h2>Lyrics</h2>
                 </div>
                 <p id="lyricText"></p>
             </div>
+            <div class="col-xs-0 col-md-1 col-xl-1"></div>
+
         </div>
     </div>
-    
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src=""></script>
-    <script src="events.js"></script>
-
+    <!-- Modal Messages -->
     <div class="bg-modal container-fluid">
         <div class="modal-content container">
             <div class="closeButton">+</div>
             <h2 class="modal-text">Try Again!</h2>
             <h3>Please insert the artist and song title</h3>
+        </div>
+    </div>
+
+    <div class="bg-modal2 container-fluid">
+        <div class="modal-content container">
+            <div class="closeButton">+</div>
+            <h2 class="modal-text">Oops!</h2>
+            <h3>We couldn't find the song you were looking for</h3>
         </div>
     </div>
 
