@@ -170,13 +170,13 @@ input:checked+.slider:before {
     margin: 30px auto;
     z-index: 10;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    overflow: auto;
+    height: 570px;
 }
 
 .artistText {
     text-align: left;
     padding-left: 10px;
-    height: 250px;
+    height: 450px;
     overflow: auto;
 }
 
@@ -194,10 +194,27 @@ input:checked+.slider:before {
     width: 100%;
 } 
 
+/* Mood Meter Styling */
+#songMeter {
+    height: 300px;
+}
+
 
 /* Modal Styling */
 
 .bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.bg-modal2 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
