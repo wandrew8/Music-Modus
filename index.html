@@ -17,8 +17,6 @@
 </head>
 
 <body>
-    <h1>Music's Modus</h1>
-
     <!-- /********************************************** Header *****************************************************/ -->
 
     <header class="container-fluid header-container">
@@ -43,19 +41,38 @@
     </header>
 
     <!-- /********************************************** Artist Info *****************************************************/ -->
-
+    
     <div class="container-fluid artist-info-container">
         <div class="row artist-container">
             <!-- Artist Photo -->
-            <div id="artistPhotoContainer" class="col-xs-12 col-md-3 col-xl-3 artist-info">
+            <div id="artistPhotoContainer" class="col-xs-12 col-md-4 col-xl-4 artist-info">
                 <div class="container-fluid heading-info">
                     <h2 id="artistName">Artist's Name</h2>
                 </div>
                 <div class="image-cropper"
-                    style="background-image: url('assets/images/yola-ayntk.jpg'); background-size: 300px 300px;"></div>
+                style="background-image: url('assets/images/yola-ayntk.jpg'); background-size: 300px 300px;"></div>
             </div>
+            <!-- Mood Meter -->
+            <div id="songMeter" class="col-xs-12 col-md-8 col-xl-8 artist-info">
+                <div class="container-fluid heading-info">
+                    <h2>Mood Meter:</h2>
+                </div>
+                <div class="meter" id="meterGauge">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- /********************************************** Lyrics *****************************************************/ -->
+    
+    
+    <div class="container-fluid lyrics-container">
+        <div class="row">
+            
             <!-- Artist Biography -->
-            <div id="artistInfo" class="col-xs-12 col-md-6 col-xl-5 artist-info">
+            <div class="col-xs-0 col-md-1 col-xl-1 artist-info"></div>
+            <div id="artistInfo" class="col-xs-12 col-md-5 col-xl-4 artist-info">
                 <div class="container-fluid heading-info">
                     <h2>Artist Info:</h2>
                 </div>
@@ -72,51 +89,25 @@
                         who
                         play a variety of instruments, such as electric guitar, bass, piano, keyboards, drums, and
                         horns,
-                        and also serve as backup singers and dancers.</p>
+                        and also serve as backup singers and dancers.
+                    </p>
                 </div>
             </div>
-            <!-- Mood Meter -->
-            <div id="songMeter" class="col-xs-12 col-md-3 col-xl-4 artist-info">
-                <div class="container-fluid heading-info">
-                    <h2>Mood Meter:</h2>
-                </div>
-                <div class="meter" id="meterGauge">
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- /********************************************** Lyrics *****************************************************/ -->
-
-
-    <div class="container-fluid lyrics-container">
-        <div class="row">
-
-            <div class="container col-xs-12 col-md-6 col-xl-5 lyrics">
+            <div class="col-xs-0 col-md-1 col-xl-1 artist-info"></div>
+            <!-- Lyrics  -->
+            <div id="lyrics" class="container col-xs-12 col-md-5 col-xl-5 lyrics">
                 <div class="container-fluid heading-info">
                     <h2>Lyrics</h2>
                 </div>
                 <p id="lyricText"></p>
             </div>
+            <div class="col-xs-0 col-md-1 col-xl-1 artist-info"></div>
+            
         </div>
     </div>
-    
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src=""></script>
-    <script src="events.js"></script>
-
-    <div class="bg-modal container-fluid">
+    <!-- Modal Messages -->
+   <div class="bg-modal container-fluid">
         <div class="modal-content container">
             <div class="closeButton">+</div>
             <h2 class="modal-text">Try Again!</h2>
