@@ -105,7 +105,9 @@ function displayLyrics() {
 
       $("#lyricText").append(response.lyrics)
 
-    if (response.lyrics === "error") {
+      console.log("Here are the lyrics: " + response)
+
+    if (songTitleArray === response.error) {
       $(".bg-modal").css("display", "flex");
 
     }
@@ -184,9 +186,9 @@ var tl = new TimelineMax({onUpdate:updatePercentage});
 var tl2 = new TimelineMax();
 const controller = new ScrollMagic.Controller();
 
-tl.from('#songMeter', 1, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#artistPhotoContainer', 2, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#lyrics', 3, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#songMeter', 4, {x:-300, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistPhotoContainer', 2, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#lyrics', 4, {x:-100, opacity: 0,ease: Power4.easeInOut}, "=-1");
 tl.from('#artistInfo', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
 
 
