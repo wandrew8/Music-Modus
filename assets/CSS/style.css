@@ -164,19 +164,18 @@ input:checked+.slider:before {
 
 #artistInfo {
     width: 100%;
-    height: 125vh;
     background-color: #fff;
     padding: 30px;
     margin: 30px auto;
     z-index: 10;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    overflow: auto;
+    height: 535px;
 }
 
 .artistText {
     text-align: left;
     padding-left: 10px;
-    height: 250px;
+    height: 450px;
     overflow: auto;
 }
 
@@ -186,18 +185,34 @@ input:checked+.slider:before {
 
 .artist-info-container {
     padding: 20px;
-    
-} 
+}
 
- .heading-info { 
+.heading-info {
     background: linear-gradient(-45deg, #18dcff, #32ff7e);
     width: 100%;
-} 
+}
 
+/* Mood Meter Styling */
+
+#songMeter {
+    height: 300px;
+}
 
 /* Modal Styling */
 
 .bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.bg-modal2 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -220,6 +235,7 @@ input:checked+.slider:before {
     padding: 30px 10px;
     position: relative;
 }
+
 .modal-text {
     font-family: 'Hepta Slab', serif;
     padding: 30px 5px;
@@ -241,14 +257,12 @@ input:checked+.slider:before {
 
 .lyrics {
     width: 100%;
-    height: 125vh;
+    height: 1100px;
     background-color: #fff;
     padding: 30px;
     margin: 30px auto;
     z-index: 10;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    overflow: auto;
-
 }
 
 .lyrics h2 {
@@ -256,9 +270,9 @@ input:checked+.slider:before {
 }
 
 .lyrics-container {
-    height: 150vh;
     width: 100%;
     background: linear-gradient(-45deg, #18dcff, #32ff7e);
+    overflow: auto;
 }
 
 #lyricText {
@@ -266,17 +280,123 @@ input:checked+.slider:before {
     line-height: 1.6em;
     font-size: 1.1em;
     text-align: center;
-
 }
+
+/*Youtube Video Styling*/
+
+#videoContainer {
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    margin: 30px auto;
+    z-index: 10;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 535px;
+}
+
+iframe {
+    margin: 0 auto;
+    width: 100%;
+    height: 60%;
+}
+
+
 
 /*Media Queries*/
 
-@media screen and (max-width: 600px) {
+/*Media - Ipad Pro*/
+@media screen and (max-width: 1024px) {
     .header-container {
-        height: 100vh;
-        width: 100%;
+        height: 100%vh;
+        width: 100%vw;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
+    }
+    .form-container {
+        height: 40%;
+        width: 90%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: white;
+    }
+    .lyrics-container {
+        height: 100%vh;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
+    }
+    h1 {
+        font-size: 15em;
+        padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 2em;
+    }
+    .filter{
+        height: 15%;
+        width: 50%;
+        font-size: 2em;
+    }
+    .button{
+        height: 20%;
+        width: 100%;
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header-container {
+        height: 100%vh;
+        width: 100%vw;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
+    }
+    .form-container {
+        height: 40%;
+        width: 80%;
+        background: white;
+    }
+    .lyrics-container {
+        height: 100%vh;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
+    }
+    h1 {
+        font-size: 4em;
+        padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
+    }
+    .filter{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+    #submitButton{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+}
+
+/*Media - Iphone X*/
+@media screen and (max-width: 375px) {
+    .header-container {
+        height: 100%vh;
+        width: 100%vw;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
+    }
+    .form-container {
+        height: 40%vh;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: white;
     }
     .lyrics-container {
         height: 100vh;
@@ -287,5 +407,20 @@ input:checked+.slider:before {
     h1 {
         font-size: 4em;
         padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
+    }
+    .filter{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+    .button{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
     }
 }

@@ -4,7 +4,7 @@ var songTitle = $("#songTitleInput").val().trim();
 
 var artistNameArray = [];
 var songTitleArray = [];
-
+var lyricHold;
 
 function displayArtistInfo(songTitle, artist) {
 
@@ -43,11 +43,35 @@ function displayArtistInfo(songTitle, artist) {
           url: queryURL,
           method: "GET"
       }).then(function (response) {
+        $('#lyricText').empty()
         console.log ("censored response", response)
         $("#lyricText").attr("dataCensored", response)
         $("#lyricText").attr("dataUncensored", responseLyrics.lyrics)
         $("#lyricText").attr("state", "uncensored")
         $("#lyricText").text(responseLyrics.lyrics)
+        lyricHold = responseLyrics.lyrics
+        console.log(typeof lyricHold)
+
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/",
+          "method": "POST",
+          "headers": {
+              "x-rapidapi-host": "twinword-emotion-analysis-v1.p.rapidapi.com",
+              "x-rapidapi-key": "7d3b7b461bmsh4767c71572dc937p16d8f7jsn23f01c67289a",
+              "content-type": "application/x-www-form-urlencoded"
+          },
+          "data": {
+              "text": "" + lyricHold,
+          }
+      }
+        
+          $.ajax(settings).done(function (response) {
+          console.log(response);
+          console.log(lyricHold)
+      });
+      
         })
 
       })
@@ -81,7 +105,12 @@ function displayLyrics() {
 
       $("#lyricText").append(response.lyrics)
 
+      console.log("Here are the lyrics: " + response)
 
+    if (songTitleArray === response.error) {
+      $(".bg-modal").css("display", "flex");
+
+    }
       
   });   
 }
@@ -98,6 +127,8 @@ $("#submitButton").on("click", function(event) {
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
       $(".bg-modal").css("display", "flex");
+
+    
 
     }
 
@@ -141,6 +172,13 @@ $(".closeButton").on("click", function(event) {
 
 });
 
+$(".closeButton").on("click", function(event) {
+  event.preventDefault();
+
+  $(".bg-modal2").css("display", "none");
+
+});
+
 
 
 //Slide in left animation code
@@ -148,10 +186,11 @@ var tl = new TimelineMax({onUpdate:updatePercentage});
 var tl2 = new TimelineMax();
 const controller = new ScrollMagic.Controller();
 
-tl.from('#artistPhotoContainer', 1, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#songMeter', 0.8, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#artistInfo', 0.5, {x:-100, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#lyrics', 1.5, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#songMeter', 4, {x:-300, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistPhotoContainer', 2, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#videoContainer', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#lyrics', 4, {x:-100, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistInfo', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
 
 
 const scene = new ScrollMagic.Scene({
@@ -174,3 +213,9 @@ function updatePercentage() {
   //percent.innerHTML = (tl.progress() *100 ).toFixed();
   tl.progress();
 }
+
+
+  
+  
+
+  
