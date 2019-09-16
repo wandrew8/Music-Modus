@@ -188,6 +188,7 @@ const controller = new ScrollMagic.Controller();
 
 tl.from('#songMeter', 4, {x:-300, opacity: 0,ease: Power4.easeInOut}, "=-1");
 tl.from('#artistPhotoContainer', 2, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#videoContainer', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
 tl.from('#lyrics', 4, {x:-100, opacity: 0,ease: Power4.easeInOut}, "=-1");
 tl.from('#artistInfo', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
 
