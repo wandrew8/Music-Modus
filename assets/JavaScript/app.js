@@ -81,7 +81,10 @@ function displayLyrics() {
 
       $("#lyricText").append(response.lyrics)
 
+    if (response.lyrics === "error") {
+      $(".bg-modal").css("display", "flex");
 
+    }
       
   });   
 }
@@ -98,6 +101,8 @@ $("#submitButton").on("click", function(event) {
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
       $(".bg-modal").css("display", "flex");
+
+    
 
     }
 
@@ -141,6 +146,13 @@ $(".closeButton").on("click", function(event) {
 
 });
 
+$(".closeButton").on("click", function(event) {
+  event.preventDefault();
+
+  $(".bg-modal2").css("display", "none");
+
+});
+
 
 
 //Slide in left animation code
@@ -148,10 +160,10 @@ var tl = new TimelineMax({onUpdate:updatePercentage});
 var tl2 = new TimelineMax();
 const controller = new ScrollMagic.Controller();
 
-tl.from('#artistPhotoContainer', 1, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#songMeter', 0.8, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#artistInfo', 0.5, {x:-100, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#lyrics', 1.5, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#songMeter', 1, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistPhotoContainer', 2, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#lyrics', 3, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistInfo', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
 
 
 const scene = new ScrollMagic.Scene({
