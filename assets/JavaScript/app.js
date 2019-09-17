@@ -134,8 +134,8 @@ function displayArtistInfo(songTitle, artist) {
 
 
     });
-  });
-}
+  };
+
 
 //Function to capitalize the first letter of each word
 function capital_letter(str) {
@@ -287,7 +287,7 @@ $("#submitButton").on("click", function(event) {
     })
 
 })
-
+})
 
 //On click command to close the modals
 $(".closeButton").on("click", function (event) {
@@ -403,4 +403,4 @@ $(document).ready(function () {
 
 $(document).on("click", function() {
   $("#formContent").css("display", "flex");
-});
+})
