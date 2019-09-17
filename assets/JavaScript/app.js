@@ -189,3 +189,17 @@ function updatePercentage() {
   //percent.innerHTML = (tl.progress() *100 ).toFixed();
   tl.progress();
 }
+
+//Hides opening animation on click of mouse
+$("#openingAnimationContainer").on("click", function() {
+  $("#openingAnimationContainer").slideUp("slow");
+});
+
+
+//Fades in text "click to begin" within opening animation
+$(document).ready(function() {
+  $("#openingClick").fadeIn(5000);
+});
+
+
+
