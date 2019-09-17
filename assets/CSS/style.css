@@ -1,5 +1,3 @@
-/*************** General styling ***************/
-
 h1 {
     font-family: 'Hepta Slab', serif;
     padding-top: 60px;
@@ -311,24 +309,12 @@ input:checked+.slider:before {
 /* Mood Meter Styling */
 
 #songMeter {
-    height: 300px;
+    height: 325px;
 }
 
 /* Modal Styling */
 
 .bg-modal {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-
-.bg-modal2 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -350,6 +336,7 @@ input:checked+.slider:before {
     text-align: center;
     padding: 30px 10px;
     position: relative;
+    top: 25%;
 }
 
 .modal-text {
@@ -374,6 +361,7 @@ input:checked+.slider:before {
 .lyrics {
     width: 100%;
     height: 1100px;
+    overflow: auto;
     background-color: #fff;
     padding: 30px;
     margin: 30px auto;
@@ -388,7 +376,6 @@ input:checked+.slider:before {
 .lyrics-container {
     width: 100%;
     background: linear-gradient(-45deg, #18dcff, #32ff7e);
-    overflow: auto;
 }
 
 #lyricText {
@@ -398,7 +385,7 @@ input:checked+.slider:before {
     text-align: center;
 }
 
-/*Youtube Video Styling*/
+/* Image Carousel Styling*/
 
 #videoContainer {
     width: 100%;
@@ -408,6 +395,7 @@ input:checked+.slider:before {
     z-index: 10;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 535px;
+    overflow: auto;
 }
 
 iframe {
@@ -415,6 +403,9 @@ iframe {
     width: 100%;
     height: 60%;
 }
+
+/* Mood */
+
 
 
 
@@ -441,7 +432,7 @@ iframe {
         background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
     }
     h1 {
-        font-size: 15em;
+        font-size: 5em;
         padding-top: 40px;
     }
     .form-control{
@@ -506,6 +497,35 @@ iframe {
         height: 100%vh;
         width: 100%vw;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
+    }
+    h1 {
+        font-size: 4em;
+        padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
+    }
+    .filter{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+    #submitButton{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+}
+
+/*Media - Iphone X*/
+@media screen and (max-width: 375px) {
+    .header-container {
+        height: 100%vh;
+        width: 100%vw;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
     }
     .form-container {
@@ -524,6 +544,43 @@ iframe {
         font-size: 4em;
         padding-top: 40px;
     }
+
+}
+/* .joy-meter {
+    height: 88px;
+    background: #419bea;
+    min-height: 200px;
+} */
+#meterGauge {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end; 
+    height: 275px; 
+    text-align: center;
+
+}
+/* .meters {
+    min-height: 275px;
+    align-items: flex-end;
+    
+    max-height: 275px;
+    
+} */
+/* .col.d-flex.justify-content-center div {
+    max-height: 228px;
+    
+}
+
+.suprise-meter {
+    height: 150px;
+    background: red;
+}
+
+.disgust-meter {
+    height: 100px;
+    background: green;
+} */
+
     .form-control{
         height: 20%;
         width: 100%;
