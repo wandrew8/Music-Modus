@@ -104,25 +104,17 @@
 
             </form>
 
-            <!-- <section id="scrollButton">
-                <h3>Click here to scroll</h3>
-                <a href="#mainContent"><span></span>Scroll</a>
-            </section> -->
-
         </header>
     </section>
 
     <!-- /********************************************** Artist Info *****************************************************/ -->
 
-        <div id="mainContent" class="container-fluid artist-info-container">
-            <div class="row artist-container container-fluid">
-                <!-- Artist Photo -->
-                <div id="artistPhotoContainer" class="col-xs-12 col-md-4 col-xl-4 artist-info">
-                    <div class="container-fluid heading-info">
-                        <h2 id="artistName">Artist's Name</h2>
-                    </div>
-                    <div class="image-cropper"
-                        style="background-image: url('assets/images/drake.jpg'); background-size: 300px 300px;"></div>
+    <div id="mainContent" class="container-fluid artist-info-container">
+        <div class="row artist-container container-fluid">
+            <!-- Artist Photo -->
+            <div id="artistPhotoContainer" class="col-xs-12 col-md-4 col-xl-4 artist-info">
+                <div class="container-fluid heading-info">
+                    <h2 id="artistName">Artist's Name</h2>
                 </div>
 
                 <div class="image-cropper"
@@ -130,6 +122,10 @@
             </div>
             <!-- Mood Meter -->
             <div id="songMeter" class="col-xs-12 col-md-8 col-xl-8 artist-info">
+                <div class="container-fluid heading-info">
+                    <h2>Mood Meter:</h2>
+                </div>
+                <div class="meter" id="meterGauge">
                 <div class="row container-fluid heading-info">
                     <h2>Mood Meter:</h2>
                 </div>
@@ -160,48 +156,48 @@
                     </div>
 
                 </div>
-
             </div>
+
         </div>
+    </div>
 
-        <!-- /********************************************** Lyrics *****************************************************/ -->
+    <!-- /********************************************** Lyrics *****************************************************/ -->
 
 
-        <div id="moreContent" class="container-fluid lyrics-container">
-            <div class="row">
+    <div id="moreContent" class="container-fluid lyrics-container">
+        <div class="row">
 
-                <!-- Artist Biography -->
-                <div class="col-xs-0 col-md-0 col-xl-1"></div>
-                <div class="col-xs-12 col-md-12 col-xl artist-info">
-                    <div id="artistInfo" class="col-xs-12">
+            <!-- Artist Biography -->
+            <div class="col-xs-0 col-md-0 col-xl-1"></div>
+            <div class="col-xs-12 col-md-12 col-xl artist-info">
+                <div id="artistInfo" class="col-xs-12">
 
-                        <div class="container-fluid heading-info">
-                            <h2>Artist Info:</h2>
-                        </div>
-                        <div class="text-container">
-                            <p id="artistBio" class="artistText"></p>
-                        </div>
-                    </div>
-                    <div id="videoContainer" class="col-xs-12">
-                        <div class="container-fluid heading-info">
-                            <h2>Videos:</h2>
-                        </div>
-                        <iframe id="youtubeVideo" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="col-xs-0 col-md-0 col-xl-1"></div>
-                <!-- Lyrics  -->
-                <div id="lyrics" class="container col-xs-12 col-md-12 col-xl lyrics">
                     <div class="container-fluid heading-info">
-                        <h2>Lyrics:</h2>
+                        <h2>Artist Info:</h2>
                     </div>
-                    <p id="lyricText"></p>
+                    <div class="text-container">
+                        <p id="artistBio" class="artistText"></p>
+                    </div>
                 </div>
-                <div class="col-xs-0 col-md-1 col-xl-1"></div>
-
+                <div id="videoContainer" class="col-xs-12">
+                    <div class="container-fluid heading-info">
+                        <h2>Videos:</h2>
+                    </div>
+                    <iframe></iframe>
+                </div>
             </div>
+            <div class="col-xs-0 col-md-0 col-xl-1"></div>
+            <!-- Lyrics  -->
+            <div id="lyrics" class="container col-xs-12 col-md-12 col-xl lyrics">
+                <div class="container-fluid heading-info">
+                    <h2>Lyrics:</h2>
+                </div>
+                <p id="lyricText">Sorry, we couldn't find the lyrics for the song you were looking for.</p>
+            </div>
+            <div class="col-xs-0 col-md-1 col-xl-1"></div>
+
         </div>
+    </div>
     </div>
 
     <!-- Modal Messages -->
@@ -213,14 +209,9 @@
         </div>
     </div>
 
-    <div class="bg-modal2 container-fluid">
-        <div class="modal-content container">
-            <div class="closeButton">+</div>
-            <h2 class="modal-text">Oops!</h2>
-            <h3>We couldn't find the song you were looking for</h3>
-        </div>
-    </div>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>

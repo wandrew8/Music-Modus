@@ -87,6 +87,7 @@ function capital_letter(str)
     return str.join(" ");
 }
 
+
 //On click command for the submit button
 $("#submitButton").on("click", function(event) {
     event.preventDefault();
@@ -98,15 +99,20 @@ $("#submitButton").on("click", function(event) {
     $("#mainContent").css("display", "flex");
     $("#moreContent").css("display", "flex");
 
-    $([document.documentElement, document.body]).animate({
-      scrollTop: $("#mainContent").offset().top
-    }, 2000);
 
+    
+    
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
       $(".bg-modal").css("display", "block");
+      $("#mainContent").css("display", "none");
+      $("#moreContent").css("display", "none");
+    } else { 
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $("#mainContent").offset().top
+      }, 2000);
     }
-
+    
 
     $(".image-cropper").css("background-image", "url()");
     $("#artistBio").empty();
@@ -264,4 +270,5 @@ $(document).ready(function() {
 $(document).on("click", function() {
   $("#formContent").css("display", "flex")
 })
+
 
