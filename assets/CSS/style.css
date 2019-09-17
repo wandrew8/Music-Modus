@@ -2,7 +2,7 @@
 
 h1 {
     font-family: 'Hepta Slab', serif;
-    padding-top: 80px;
+    padding-top: 60px;
     font-size: 8em;
     color: #fff;
     text-align: center;
@@ -139,10 +139,10 @@ p {
     clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
 }
 
-.form-container {
+#form-container {
     background: #fff;
     border: solid #7d5fff 2px;
-    z-index: 2;
+    padding: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -154,6 +154,21 @@ p {
 
 .fas {
     margin-right: 10px;
+}
+  
+/* On page load Hidden Content */
+
+#formContent {
+    display: none;
+
+}
+
+#mainContent {
+    display: none;
+}
+
+#moreContent {
+    display: none;
 }
 
 /***************Toggle Button***************/
@@ -276,7 +291,7 @@ input:checked+.slider:before {
 .artistText {
     text-align: left;
     padding-left: 10px;
-    height: 450px;
+    height: 400px;
     overflow: auto;
 }
 
@@ -461,6 +476,35 @@ iframe {
     .lyrics-container {
         height: 100%vh;
         width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
+    }
+    h1 {
+        font-size: 4em;
+        padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
+    }
+    .filter{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+    #submitButton{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+}
+
+/*Media - Iphone X*/
+@media screen and (max-width: 375px) {
+    .header-container {
+        height: 100%vh;
+        width: 100%vw;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
     }

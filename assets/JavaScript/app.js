@@ -123,13 +123,17 @@ $("#submitButton").on("click", function(event) {
     var artist = $("#artistInput").val().trim();
     var songTitle = $("#songTitleInput").val().trim();
 
+    //Main content appears on the page
+    $("#mainContent").css("display", "flex");
+    $("#moreContent").css("display", "flex");
+
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $("#mainContent").offset().top
+    }, 2000);
 
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
-      $(".bg-modal").css("display", "flex");
-
-    
-
+      $(".bg-modal").css("display", "block");
     }
 
 
@@ -164,7 +168,7 @@ $("#submitButton").on("click", function(event) {
 
 
 
-//On click command to close the modal
+//On click command to close the modals
 $(".closeButton").on("click", function(event) {
   event.preventDefault();
 
@@ -225,4 +229,10 @@ $("#openingAnimationContainer").on("click", function() {
 $(document).ready(function() {
   $("#openingClick").fadeIn(5000);
 });
+
+
+//Hides form content until user clicks on the page
+$(document).on("click", function() {
+  $("#formContent").css("display", "flex")
+})
 
