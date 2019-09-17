@@ -19,7 +19,9 @@ function displayArtistInfo(songTitle, artist) {
     }).then(function (response) {
 
         $(".image-cropper").css("background-image", "url(" + response.artists[0].strArtistThumb + ")");
-
+        $("#image1").attr("src", response.artists[0].strArtistFanart);
+        $("#image2").attr("src", response.artists[0].strArtistFanart2);
+        $("#image3").attr("src", response.artists[0].strArtistFanart3);
 
         $("#artistBio").text(response.artists[0].strBiographyEN);
         var capitalizedName = capital_letter(artistNameArray[0])
@@ -107,11 +109,6 @@ function displayLyrics() {
 
       console.log("Here are the lyrics: " + response)
 
-    if (songTitleArray === response.error) {
-      $(".bg-modal").css("display", "flex");
-
-    }
-      
   });   
 }
 
@@ -127,15 +124,20 @@ $("#submitButton").on("click", function(event) {
     $("#mainContent").css("display", "flex");
     $("#moreContent").css("display", "flex");
 
-    $([document.documentElement, document.body]).animate({
-      scrollTop: $("#mainContent").offset().top
-    }, 2000);
 
+    
+    
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
       $(".bg-modal").css("display", "block");
+      $("#mainContent").css("display", "none");
+      $("#moreContent").css("display", "none");
+    } else { 
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $("#mainContent").offset().top
+      }, 2000);
     }
-
+    
 
     $(".image-cropper").css("background-image", "url()");
     $("#artistBio").empty();
@@ -235,4 +237,5 @@ $(document).ready(function() {
 $(document).on("click", function() {
   $("#formContent").css("display", "flex")
 })
+
 

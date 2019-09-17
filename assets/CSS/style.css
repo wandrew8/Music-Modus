@@ -328,18 +328,6 @@ input:checked+.slider:before {
     display: none;
 }
 
-.bg-modal2 {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-
 .modal-content {
     width: 100%;
     height: 100%;
@@ -350,6 +338,7 @@ input:checked+.slider:before {
     text-align: center;
     padding: 30px 10px;
     position: relative;
+    top: 25%;
 }
 
 .modal-text {
@@ -374,6 +363,7 @@ input:checked+.slider:before {
 .lyrics {
     width: 100%;
     height: 1100px;
+    overflow: auto;
     background-color: #fff;
     padding: 30px;
     margin: 30px auto;
@@ -388,7 +378,6 @@ input:checked+.slider:before {
 .lyrics-container {
     width: 100%;
     background: linear-gradient(-45deg, #18dcff, #32ff7e);
-    overflow: auto;
 }
 
 #lyricText {
@@ -398,7 +387,7 @@ input:checked+.slider:before {
     text-align: center;
 }
 
-/*Youtube Video Styling*/
+/* Image Carousel Styling*/
 
 #videoContainer {
     width: 100%;
@@ -408,6 +397,7 @@ input:checked+.slider:before {
     z-index: 10;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 535px;
+    overflow: auto;
 }
 
 iframe {
@@ -415,8 +405,6 @@ iframe {
     width: 100%;
     height: 60%;
 }
-
-
 
 /*Media Queries*/
 
@@ -441,7 +429,7 @@ iframe {
         background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
     }
     h1 {
-        font-size: 15em;
+        font-size: 5em;
         padding-top: 40px;
     }
     .form-control{
