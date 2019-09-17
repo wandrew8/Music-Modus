@@ -153,6 +153,9 @@ function capital_letter(str) {
 //Function to display the lyrics on the page
 function displayLyrics() {
 
+    //Main content appears on the page
+    $("#mainContent").css("display", "block");
+    $("#moreContent").css("display", "block");
   var queryURL = "https://api.lyrics.ovh/v1/" + artistNameArray + "/" + songTitleArray + "/";
 
 
