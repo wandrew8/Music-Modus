@@ -420,12 +420,99 @@ iframe {
 
 /*Media Queries*/
 
-@media screen and (max-width: 600px) {
+/*Media - Ipad Pro*/
+@media screen and (max-width: 1024px) {
     .header-container {
-        height: 100vh;
-        width: 100%;
+        height: 100%vh;
+        width: 100%vw;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
+    }
+    .form-container {
+        height: 40%;
+        width: 90%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: white;
+    }
+    .lyrics-container {
+        height: 100%vh;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
+    }
+    h1 {
+        font-size: 15em;
+        padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 2em;
+    }
+    .filter{
+        height: 15%;
+        width: 50%;
+        font-size: 2em;
+    }
+    .button{
+        height: 20%;
+        width: 100%;
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header-container {
+        height: 100%vh;
+        width: 100%vw;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
+    }
+    .form-container {
+        height: 40%;
+        width: 80%;
+        background: white;
+    }
+    .lyrics-container {
+        height: 100%vh;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #18dcff, #32ff7e), linear-gradient(transparent, white);
+    }
+    h1 {
+        font-size: 4em;
+        padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
+    }
+    .filter{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+    #submitButton{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+}
+
+/*Media - Iphone X*/
+@media screen and (max-width: 375px) {
+    .header-container {
+        height: 100%vh;
+        width: 100%vw;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
+    }
+    .form-container {
+        height: 40%vh;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: white;
     }
     .lyrics-container {
         height: 100vh;
@@ -436,5 +523,20 @@ iframe {
     h1 {
         font-size: 4em;
         padding-top: 40px;
+    }
+    .form-control{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
+    }
+    .filter{
+        height: 15%;
+        width: 60%;
+        font-size: 1em;
+    }
+    .button{
+        height: 20%;
+        width: 100%;
+        font-size: 1em;
     }
 }

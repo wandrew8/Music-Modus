@@ -4,7 +4,7 @@ var songTitle = $("#songTitleInput").val().trim();
 
 var artistNameArray = [];
 var songTitleArray = [];
-
+var lyricHold;
 
 function displayArtistInfo(songTitle, artist) {
 
@@ -43,11 +43,35 @@ function displayArtistInfo(songTitle, artist) {
           url: queryURL,
           method: "GET"
       }).then(function (response) {
+        $('#lyricText').empty()
         console.log ("censored response", response)
         $("#lyricText").attr("dataCensored", response)
         $("#lyricText").attr("dataUncensored", responseLyrics.lyrics)
         $("#lyricText").attr("state", "uncensored")
         $("#lyricText").text(responseLyrics.lyrics)
+        lyricHold = responseLyrics.lyrics
+        console.log(typeof lyricHold)
+
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/",
+          "method": "POST",
+          "headers": {
+              "x-rapidapi-host": "twinword-emotion-analysis-v1.p.rapidapi.com",
+              "x-rapidapi-key": "7d3b7b461bmsh4767c71572dc937p16d8f7jsn23f01c67289a",
+              "content-type": "application/x-www-form-urlencoded"
+          },
+          "data": {
+              "text": "" + lyricHold,
+          }
+      }
+        
+          $.ajax(settings).done(function (response) {
+          console.log(response);
+          console.log(lyricHold)
+      });
+      
         })
 
       })
@@ -194,6 +218,7 @@ function updatePercentage() {
   tl.progress();
 }
 
+
 //Hides opening animation on click of mouse
 $("#openingAnimationContainer").on("click", function() {
   $("#openingAnimationContainer").slideUp("slow");
@@ -210,8 +235,5 @@ $(document).ready(function() {
 $(document).on("click", function() {
   $("#formContent").css("display", "flex")
 })
-
-
-
 
 
