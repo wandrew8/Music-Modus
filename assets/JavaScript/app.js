@@ -96,8 +96,8 @@ $("#submitButton").on("click", function(event) {
     var songTitle = $("#songTitleInput").val().trim();
 
     //Main content appears on the page
-    $("#mainContent").css("display", "flex");
-    $("#moreContent").css("display", "flex");
+    $("#mainContent").css("display", "block");
+    $("#moreContent").css("display", "block");
 
 
     
