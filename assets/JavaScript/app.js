@@ -135,12 +135,12 @@ $("#submitButton").on("click", function(event) {
         $("#lyricText").attr("state", "censored")
         var censoredText = $("#lyricText").attr("dataCensored")
         $("#lyricText").text(censoredText)
-      } else {
+      } 
+      else if (state === "censored") {
         $("#lyricText").attr("state", "uncensored")
-        var uncensoredText = $("#lyricText").attr("dataUncensored")
+        var censoredText = $("#lyricText").attr("dataUncensored")
         $("#lyricText").text(uncensoredText)
       }
-      
     })
 })
 
