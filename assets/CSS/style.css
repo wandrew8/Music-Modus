@@ -310,6 +310,10 @@ input:checked+.slider:before {
 
 #songMeter {
     height: 325px;
+    
+}
+.meters {
+    max-height: 325px;
 }
 
 /* Modal Styling */
