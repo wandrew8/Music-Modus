@@ -87,29 +87,6 @@ function capital_letter(str)
     return str.join(" ");
 }
 
-
-//Function to display the lyrics on the page
-// function displayLyrics() {
-
-//   var queryURL = "https://api.lyrics.ovh/v1/" + artistNameArray + "/" + songTitleArray + "/";
-  
-
-//   $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//   }).then(function (response) {
-
-//       $("#lyricText").append(response.lyrics)
-
-//     if (response.lyrics === "error") {
-//       $(".bg-modal").css("display", "flex");
-
-//     }
-      
-//   });   
-// }
-
-
 //On click command for the submit button
 $("#submitButton").on("click", function(event) {
     event.preventDefault();
@@ -117,13 +94,17 @@ $("#submitButton").on("click", function(event) {
     var artist = $("#artistInput").val().trim();
     var songTitle = $("#songTitleInput").val().trim();
 
+    //Main content appears on the page
+    $("#mainContent").css("display", "flex");
+    $("#moreContent").css("display", "flex");
+
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $("#mainContent").offset().top
+    }, 2000);
 
     //Conditional to display modal prompting user to insert the needed information
     if (artist === "" || songTitle === "") {
-      $(".bg-modal").css("display", "flex");
-
-    
-
+      $(".bg-modal").css("display", "block");
     }
 
 
@@ -159,7 +140,7 @@ $("#submitButton").on("click", function(event) {
 
 
 
-//On click command to close the modal
+//On click command to close the modals
 $(".closeButton").on("click", function(event) {
   event.preventDefault();
 
@@ -181,9 +162,10 @@ var tl = new TimelineMax({onUpdate:updatePercentage});
 var tl2 = new TimelineMax();
 const controller = new ScrollMagic.Controller();
 
-tl.from('#songMeter', 1, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#artistPhotoContainer', 2, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-tl.from('#lyrics', 3, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#songMeter', 4, {x:-300, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#artistPhotoContainer', 2, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#videoContainer', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
+tl.from('#lyrics', 4, {x:-100, opacity: 0,ease: Power4.easeInOut}, "=-1");
 tl.from('#artistInfo', 4, {x:-500, opacity: 0,ease: Power4.easeInOut}, "=-1");
 
 
@@ -207,6 +189,8 @@ function updatePercentage() {
   //percent.innerHTML = (tl.progress() *100 ).toFixed();
   tl.progress();
 }
+
+
 var joyLocation = $("#joy-meter")
 var supriseLocation = $("#suprise-meter")
 var fearLocation = $("#fear-meter")
@@ -264,4 +248,20 @@ var meterFill= function(joy,suprise,fear,disgust,anger,sadness){
 }  
   
 
-  
+//Hides opening animation on click of mouse
+$("#openingAnimationContainer").on("click", function() {
+  $("#openingAnimationContainer").slideUp("slow");
+});
+
+
+//Fades in text "click to begin" within opening animation
+$(document).ready(function() {
+  $("#openingClick").fadeIn(5000);
+});
+
+
+//Hides form content until user clicks on the page
+$(document).on("click", function() {
+  $("#formContent").css("display", "flex")
+})
+
