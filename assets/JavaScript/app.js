@@ -106,34 +106,40 @@ $("#submitButton").on("click", function(event) {
     $([document.documentElement, document.body]).animate(
       {
         scrollTop: $("#mainContent").offset().top
-      },
-      2000
-    );
-  }
-
-  $(".image-cropper").css("background-image", "url()");
-  $("#artistBio").empty();
-  $("#artistName").empty();
-  $("#lyricText").empty();
-  $("#artistInput").val("");
-  $("#songTitleInput").val("");
-  
-
-  displayArtistInfo(songTitle, artist);
-
-  $("#profanityFilter").on("click", function() {
-    var state = $("#lyricText").attr("state");
-    if (state === "uncensored") {
-      $("#lyricText").attr("state", "censored");
-      var censoredText = $("#lyricText").attr("dataCensored");
-      $("#lyricText").text(censoredText);
-    } else {
-      $("#lyricText").attr("state", "uncensored");
-      var uncensoredText = $("#lyricText").attr("dataUncensored");
-      $("#lyricText").text(uncensoredText);
+      }, 2000);
     }
-  });
-});
+    
+
+    $(".image-cropper").css("background-image", "url()");
+    $("#artistBio").empty();
+    $("#artistName").empty();
+    $("#lyricText").empty();
+    $("#artistInput").val("");
+    $("#songTitleInput").val("");
+    artistNameArray = []
+    artistNameArray.push(artist);
+    songTitleArray = [];
+    songTitleArray.push(songTitle);
+
+    
+    displayArtistInfo(songTitle, artist);
+    
+    $("#profanityFilter").on("click", function (){
+      
+      var state = $("#lyricText").attr("state")
+      if (state === "uncensored"){
+        $("#lyricText").attr("state", "censored")
+        var censoredText = $("#lyricText").attr("dataCensored")
+        $("#lyricText").text(censoredText)
+      } 
+      else if (state === "censored") {
+        $("#lyricText").attr("state", "uncensored")
+        var censoredText = $("#lyricText").attr("dataUncensored")
+        $("#lyricText").text(uncensoredText)
+      }
+    })
+})
+
 
 //On click command to close the modals
 $(".closeButton").on("click", function(event) {
