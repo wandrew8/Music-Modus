@@ -30,9 +30,7 @@ function displayArtistInfo(songTitle, artist) {
       method: "GET"
     }).then(function(responseLyrics) {
       queryURL =
-        "https://www.purgomalum.com/service/plain?text=" + artist
-        responseLyrics.lyrics
-        ;
+        "https://www.purgomalum.com/service/plain?text=" + artist + responseLyrics.lyrics;
 
       $.ajax({
         url: queryURL,
@@ -288,6 +286,7 @@ $("#submitButton").on("click", function(event) {
         $("#lyricText").text(uncensoredText)
       }
     })
+});
 
 })
 })
