@@ -8,36 +8,28 @@ var lyricHold;
 
 function displayArtistInfo(songTitle, artist) {
 
-
     var artistN = $(this).attr("data-name");
     var queryURL = "https://www.theaudiodb.com/api/v1/json/1/search.php?s=" + artistNameArray;
-    
-    console.log (artistName);
+
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
 
         $(".image-cropper").css("background-image", "url(" + response.artists[0].strArtistThumb + ")");
-        $("#image1").attr("src", response.artists[0].strArtistFanart);
-        $("#image2").attr("src", response.artists[0].strArtistFanart2);
-        $("#image3").attr("src", response.artists[0].strArtistFanart3);
-
         $("#artistBio").text(response.artists[0].strBiographyEN);
         var capitalizedName = capital_letter(artistNameArray[0])
         $("#artistName").text(capitalizedName);
     
-        console.log(response.artists[0].strBiographyEN);
-        console.log(response.artists[0].strArtistThumb);
+
 
         queryURL = `https://api.lyrics.ovh/v1/${artist}/${songTitle}`;
-        console.log("query", queryURL)
-
+       
         $.ajax({
-         url: queryURL,
+          url: queryURL,
           method: "GET"
-      }).then(function (responseLyrics) {
-        console.log("lyricsresponse: ", responseLyrics)
+        }).then(function (responseLyrics) {
+       
        
         queryURL = "https://www.purgomalum.com/service/plain?text=" + responseLyrics.lyrics;
 
@@ -45,33 +37,35 @@ function displayArtistInfo(songTitle, artist) {
           url: queryURL,
           method: "GET"
       }).then(function (response) {
-        $('#lyricText').empty()
-        console.log ("censored response", response)
-        $("#lyricText").attr("dataCensored", response)
-        $("#lyricText").attr("dataUncensored", responseLyrics.lyrics)
-        $("#lyricText").attr("state", "uncensored")
-        $("#lyricText").text(responseLyrics.lyrics)
+        var lyricLocation = $('#lyricText')
+        lyricLocation.empty()
+        lyricLocation.attr("dataCensored", response)
+        lyricLocation.attr("dataUncensored", responseLyrics.lyrics)
+        lyricLocation.attr("state", "uncensored")
+        lyricLocation.text(responseLyrics.lyrics)
         lyricHold = responseLyrics.lyrics
-        console.log(typeof lyricHold)
+        
 
         var settings = {
-          "async": true,
-          "crossDomain": true,
-          "url": "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/",
-          "method": "POST",
-          "headers": {
+          async: true,
+          crossDomain: true,
+          url: "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/",
+          method: "POST",
+          headers: {
               "x-rapidapi-host": "twinword-emotion-analysis-v1.p.rapidapi.com",
               "x-rapidapi-key": "7d3b7b461bmsh4767c71572dc937p16d8f7jsn23f01c67289a",
               "content-type": "application/x-www-form-urlencoded"
           },
-          "data": {
-              "text": "" + lyricHold,
+          data: {
+              text: lyricHold
           }
       }
         
-          $.ajax(settings).done(function (response) {
-          console.log(response);
-          console.log(lyricHold)
+          $.ajax(settings).then(function (response) {
+            
+          console.log(response)
+          meterFill(response.emotion_scores.joy,response.emotion_scores.suprise,response.emotion_scores.fear,response.emotion_scores.disgust,
+            response.emotion_scores.anger,response.emotion_scores.sadness)
       });
       
         })
@@ -91,25 +85,6 @@ function capital_letter(str)
     }
 
     return str.join(" ");
-}
-
-
-//Function to display the lyrics on the page
-function displayLyrics() {
-
-  var queryURL = "https://api.lyrics.ovh/v1/" + artistNameArray + "/" + songTitleArray + "/";
-  
-
-  $.ajax({
-      url: queryURL,
-      method: "GET"
-  }).then(function (response) {
-
-      $("#lyricText").append(response.lyrics)
-
-      console.log("Here are the lyrics: " + response)
-
-  });   
 }
 
 
@@ -150,11 +125,11 @@ $("#submitButton").on("click", function(event) {
     songTitleArray = [];
     songTitleArray.push(songTitle);
 
-    console.log("You selected the following artist: " + artist);
+    
     displayArtistInfo(songTitle, artist);
     
     $("#profanityFilter").on("click", function (){
-      console.log("clicked")
+      
       var state = $("#lyricText").attr("state")
       if (state === "uncensored"){
         $("#lyricText").attr("state", "censored")
@@ -165,6 +140,7 @@ $("#submitButton").on("click", function(event) {
         var uncensoredText = $("#lyricText").attr("dataUncensored")
         $("#lyricText").text(uncensoredText)
       }
+      
     })
 })
 
@@ -220,6 +196,63 @@ function updatePercentage() {
   tl.progress();
 }
 
+
+var joyLocation = $("#joy-meter")
+var supriseLocation = $("#suprise-meter")
+var fearLocation = $("#fear-meter")
+var disgustLocation = $("#disgust-meter")
+var angerLocation = $("#anger-meter")
+var sadnessLocation = $("sadness-meter")
+
+var meterFill= function(joy,suprise,fear,disgust,anger,sadness){  
+
+  var jpixles = joy*2200
+
+  joyLocation.animate({
+    width: "50px",
+    height: jpixles+ "px",
+  })
+  joyLocation.css("background-color", "orange")
+  var Suppixles = suprise*2200
+
+  supriseLocation.animate({
+    width: "50px",
+    height: Suppixles+ "px",
+  })
+  supriseLocation.css("background-color", "yellow") 
+  var fpixles = fear*2200
+
+  fearLocation.animate({
+    width: "50px",
+    height: fpixles+ "px",
+  })
+  fearLocation.css("background-color", "purple")
+
+  var dpixles = disgust*2200
+
+  disgustLocation.animate({
+    width: "50px",
+    height: dpixles+ "px",
+  })
+  disgustLocation.css("background-color", "green")
+
+  var apixles = anger*2200
+
+  angerLocation.animate({
+    width: "50px",
+    height: apixles+ "px",
+  })
+  angerLocation.css("background-color", "red")
+  
+  var sadpixles = sadness*2200
+  
+  sadnessLocation.animate({
+    width: "50px",
+    height: sadpixles + "px",
+  })
+  sadnessLocation.css("background-color", "blue")
+}  
+  
 
 //Hides opening animation on click of mouse
 $("#openingAnimationContainer").on("click", function() {
