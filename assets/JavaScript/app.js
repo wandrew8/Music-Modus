@@ -212,21 +212,21 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: jpixles > 250 ? 250 : jpixles + "px"
   });
-  joyLocation.css("background-color", "blue");
+  joyLocation.css("background-color", "#18dcff");
   var suppixles = suprise * 2200;
 
   supriseLocation.animate({
     width: "100%",
     height: suppixles > 250 ? 250 : suppixles + "px"
   });
-  supriseLocation.css("background-color", "blue");
+  supriseLocation.css("background-color", "#18dcff");
   var fpixles = fear * 2200;
 
   fearLocation.animate({
     width: "100%",
     height: fpixles > 250 ? 250 : fpixles + "px"
   });
-  fearLocation.css("background-color", "blue");
+  fearLocation.css("background-color", "#18dcff");
 
   var dpixles = disgust * 2200;
 
@@ -234,7 +234,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: dpixles > 250 ? 250 : dpixles + "px"
   });
-  disgustLocation.css("background-color", "blue");
+  disgustLocation.css("background-color", "#18dcff");
 
   var apixles = anger * 2200;
 
@@ -242,7 +242,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: apixles > 250 ? 250 : apixles + "px"
   });
-  angerLocation.css("background-color", "blue");
+  angerLocation.css("background-color", "#18dcff");
 
   var sadpixles = sadness * 2200;
 
@@ -250,7 +250,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: sadpixles > 250 ? 250 : sadpixles + "px"
   });
-  sadnessLocation.css("background-color", "blue");
+  sadnessLocation.css("background-color", "#18dcff");
 };
 
 //Hides opening animation on click of mouse
