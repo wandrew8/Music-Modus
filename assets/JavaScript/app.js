@@ -1,14 +1,13 @@
 var lyricHold;
 
 function displayArtistInfo(songTitle, artist) {
-
   var queryURL =
     "https://www.theaudiodb.com/api/v1/json/1/search.php?s=" + artist;
 
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function (response) {
+  }).then(function(response) {
     $(".image-cropper").css(
       "background-image",
       "url(" + response.artists[0].strArtistThumb + ")"
@@ -22,17 +21,14 @@ function displayArtistInfo(songTitle, artist) {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function (responseLyrics) {
+    }).then(function(responseLyrics) {
       queryURL =
-        "https://www.purgomalum.com/service/plain?text=" + artist
-        responseLyrics.lyrics
-        ;
+        "https://www.purgomalum.com/service/plain?text=" +
+        responseLyrics.lyrics;
 
       $.ajax({
         url: queryURL,
         method: "GET"
-
-
       }).then(function(response) {
         var lyricLocation = $("#lyricText");
         lyricLocation.empty();
@@ -74,7 +70,6 @@ function displayArtistInfo(songTitle, artist) {
   });
 }
 
-
 //Function to capitalize the first letter of each word
 function capital_letter(str) {
   str = str.split(" ");
@@ -85,7 +80,6 @@ function capital_letter(str) {
 
   return str.join(" ");
 }
-
 
 //On click command for the submit button
 $("#submitButton").on("click", function(event) {
@@ -102,7 +96,6 @@ $("#submitButton").on("click", function(event) {
   $("#mainContent").css("display", "flex");
   $("#moreContent").css("display", "flex");
 
-
   //Conditional to display modal prompting user to insert the needed information
   if (artist === "" || songTitle === "") {
     $(".bg-modal").css("display", "block");
@@ -112,12 +105,10 @@ $("#submitButton").on("click", function(event) {
     $([document.documentElement, document.body]).animate(
       {
         scrollTop: $("#mainContent").offset().top
-
       },
       2000
     );
   }
-
 
   $(".image-cropper").css("background-image", "url()");
   $("#artistBio").empty();
@@ -125,8 +116,6 @@ $("#submitButton").on("click", function(event) {
   $("#lyricText").empty();
   $("#artistInput").val("");
   $("#songTitleInput").val("");
-
-  
 
   displayArtistInfo(songTitle, artist);
 
@@ -140,7 +129,6 @@ $("#submitButton").on("click", function(event) {
       $("#lyricText").attr("state", "uncensored");
       var uncensoredText = $("#lyricText").attr("dataUncensored");
       $("#lyricText").text(uncensoredText);
-
     }
   });
 });
@@ -152,13 +140,11 @@ $(".closeButton").on("click", function(event) {
   $(".bg-modal").css("display", "none");
 });
 
-
 $(".closeButton").on("click", function(event) {
   event.preventDefault();
 
   $(".bg-modal2").css("display", "none");
 });
-
 
 //Slide in left animation code
 var tl = new TimelineMax({ onUpdate: updatePercentage });
@@ -216,51 +202,51 @@ var supriseLocation = $("#suprise-meter");
 var fearLocation = $("#fear-meter");
 var disgustLocation = $("#disgust-meter");
 var angerLocation = $("#anger-meter");
-var sadnessLocation = $("sadness-meter");
+var sadnessLocation = $("#sadness-meter");
 
-var meterFill = function (joy, suprise, fear, disgust, anger, sadness) {
+var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
   var jpixles = joy * 2200;
 
   joyLocation.animate({
-    width: "50px",
+    width: "100%",
     height: jpixles > 250 ? 250 : jpixles + "px"
   });
-  joyLocation.css("background-color", "orange");
-  var Suppixles = suprise * 2200;
+  joyLocation.css("background-color", "blue");
+  var suppixles = suprise * 2200;
 
   supriseLocation.animate({
-    width: "50px",
-    height: Suppixles > 250 ? 250 : Suppixles + "px"
+    width: "100%",
+    height: suppixles > 250 ? 250 : suppixles + "px"
   });
-  supriseLocation.css("background-color", "yellow");
+  supriseLocation.css("background-color", "blue");
   var fpixles = fear * 2200;
 
   fearLocation.animate({
-    width: "50px",
+    width: "100%",
     height: fpixles > 250 ? 250 : fpixles + "px"
   });
-  fearLocation.css("background-color", "purple");
+  fearLocation.css("background-color", "blue");
 
   var dpixles = disgust * 2200;
 
   disgustLocation.animate({
-    width: "50px",
+    width: "100%",
     height: dpixles > 250 ? 250 : dpixles + "px"
   });
-  disgustLocation.css("background-color", "green");
+  disgustLocation.css("background-color", "blue");
 
   var apixles = anger * 2200;
 
   angerLocation.animate({
-    width: "50px",
+    width: "100%",
     height: apixles > 250 ? 250 : apixles + "px"
   });
-  angerLocation.css("background-color", "red");
+  angerLocation.css("background-color", "blue");
 
   var sadpixles = sadness * 2200;
 
   sadnessLocation.animate({
-    width: "50px",
+    width: "100%",
     height: sadpixles > 250 ? 250 : sadpixles + "px"
   });
   sadnessLocation.css("background-color", "blue");
@@ -278,8 +264,6 @@ $(document).ready(function() {
 
 //Hides form content until user clicks on the page
 
-
 $(document).on("click", function() {
-
   $("#formContent").css("display", "flex");
 });
