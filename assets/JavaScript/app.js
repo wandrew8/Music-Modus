@@ -1,4 +1,18 @@
 var lyricHold;
+var censored = true;
+var lyricLocation;
+var censoredLyrics; 
+var censorshipfunc = function(){
+  var censored = $('#customSwitch1').prop("checked");
+  if(censored === true){
+     $("#lyricText").text(censoredLyrics)
+  }else{
+    $("#lyricText").text(lyricHold)
+  }
+}
+$("#customSwitch1").click(function(){
+    censorshipfunc()
+})
 
 function displayArtistInfo(songTitle, artist) {
   var queryURL =
@@ -23,20 +37,18 @@ function displayArtistInfo(songTitle, artist) {
       method: "GET"
     }).then(function(responseLyrics) {
       queryURL =
-        "https://www.purgomalum.com/service/plain?text=" +
-        responseLyrics.lyrics;
+        "https://www.purgomalum.com/service/plain?text=" + responseLyrics.lyrics;
+        
 
       $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        var lyricLocation = $("#lyricText");
-        lyricLocation.empty();
-        lyricLocation.attr("dataCensored", response);
-        lyricLocation.attr("dataUncensored", responseLyrics.lyrics);
-        lyricLocation.attr("state", "uncensored");
-        lyricLocation.text(responseLyrics.lyrics);
+        lyricLocation = $("#lyricText");
+
         lyricHold = responseLyrics.lyrics;
+        censoredLyrics = response;
+        censorshipfunc()
 
         var settings = {
           async: true,
@@ -70,7 +82,7 @@ function displayArtistInfo(songTitle, artist) {
   });
   console.log("this is a test", artist + songTitle)
     $.ajax({
-      url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + artist + songTitle + "&key=AIzaSyD-I609EBue7TuGbhT7_bn6PawQPIxN2wI&",
+      url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + artist + songTitle + "&key=AIzaSyA6wZLmmeTTmwU8mKtb3xg0SpC-GMxcFng",
       method: "GET"
     }).then(function (response) {
       console.log("response", response)
@@ -80,6 +92,7 @@ function displayArtistInfo(songTitle, artist) {
 
 
     })
+   
 }
 
 //Function to capitalize the first letter of each word
@@ -130,21 +143,8 @@ $("#submitButton").on("click", function(event) {
   $("#songTitleInput").val("");
 
   displayArtistInfo(songTitle, artist);
-
-  $("#profanityFilter").on("click", function() {
-    var state = $("#lyricText").attr("state");
-    if (state === "uncensored") {
-      $("#lyricText").attr("state", "censored");
-      var censoredText = $("#lyricText").attr("dataCensored");
-      $("#lyricText").text(censoredText);
-    } else {
-      $("#lyricText").attr("state", "uncensored");
-      var uncensoredText = $("#lyricText").attr("dataUncensored");
-      $("#lyricText").text(uncensoredText);
-    }
-    state.empty()
-  });
-});
+   
+ });
 
 //On click command to close the modals
 $(".closeButton").on("click", function(event) {
@@ -218,21 +218,21 @@ var angerLocation = $("#anger-meter");
 var sadnessLocation = $("#sadness-meter");
 
 var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
-  var jpixles = joy * 2200;
+  var jpixles = joy * 1500;
 
   joyLocation.animate({
     width: "100%",
     height: jpixles > 250 ? 250 : jpixles + "px"
   });
   joyLocation.css("background-color", "#18dcff");
-  var suppixles = suprise * 2200;
+  var suppixles = suprise * 1500;
 
   supriseLocation.animate({
     width: "100%",
     height: suppixles > 250 ? 250 : suppixles + "px"
   });
   supriseLocation.css("background-color", "#18dcff");
-  var fpixles = fear * 2200;
+  var fpixles = fear * 1500;
 
   fearLocation.animate({
     width: "100%",
@@ -240,7 +240,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
   });
   fearLocation.css("background-color", "#18dcff");
 
-  var dpixles = disgust * 2200;
+  var dpixles = disgust * 1500;
 
   disgustLocation.animate({
     width: "100%",
@@ -248,7 +248,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
   });
   disgustLocation.css("background-color", "#18dcff");
 
-  var apixles = anger * 2200;
+  var apixles = anger * 1500;
 
   angerLocation.animate({
     width: "100%",
@@ -256,13 +256,16 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
   });
   angerLocation.css("background-color", "#18dcff");
 
-  var sadpixles = sadness * 2200;
+  var sadpixles = sadness * 1500;
 
   sadnessLocation.animate({
     width: "100%",
     height: sadpixles > 250 ? 250 : sadpixles + "px"
   });
   sadnessLocation.css("background-color", "#18dcff");
+  joyLocation.empty()
+  supriseLocation.empty()
+
 };
 
 //Hides opening animation on click of mouse
