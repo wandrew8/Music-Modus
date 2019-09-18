@@ -130,6 +130,7 @@ $("#submitButton").on("click", function(event) {
       var uncensoredText = $("#lyricText").attr("dataUncensored");
       $("#lyricText").text(uncensoredText);
     }
+    state.empty()
   });
 });
 
