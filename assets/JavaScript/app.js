@@ -76,8 +76,8 @@ function displayArtistInfo(songTitle, artist) {
       console.log("response", response)
       var videoId = response.items[0].id.videoId
       console.log("videoId", videoId)
-      $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
 
+      $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
 
     })
 }
@@ -142,7 +142,7 @@ $("#submitButton").on("click", function(event) {
       var uncensoredText = $("#lyricText").attr("dataUncensored");
       $("#lyricText").text(uncensoredText);
     }
-    state.empty()
+    state.empty();
   });
 });
 
