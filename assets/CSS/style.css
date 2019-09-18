@@ -416,23 +416,15 @@ iframe {
 
 /* Mood */
 
+.meters {
+    height: 350px;
+    text-align: center;
+}
+
 .moodRow {
     height: 350px;
 }
 
-#emotionBox1 {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    
-}
-
-#emotionBox2 {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    
-}
 .emptySpace {
     width:100%;
     height: 100%;
