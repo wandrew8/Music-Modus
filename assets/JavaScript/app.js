@@ -4,17 +4,17 @@ function displayArtistInfo(songTitle, artist) {
 
 
 
- 
 
-    var artistN = $(this).attr("data-name");
-    var queryURL = "https://www.theaudiodb.com/api/v1/json/1/search.php?s=" + artistNameArray;
+
+  var artistN = $(this).attr("data-name");
+  var queryURL = "https://www.theaudiodb.com/api/v1/json/1/search.php?s=" + artistNameArray;
   var queryURL =
     "https://www.theaudiodb.com/api/v1/json/1/search.php?s=" + artist;
 
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     $(".image-cropper").css(
       "background-image",
       "url(" + response.artists[0].strArtistThumb + ")"
@@ -28,88 +28,88 @@ function displayArtistInfo(songTitle, artist) {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(responseLyrics) {
+    }).then(function (responseLyrics) {
       queryURL =
         "https://www.purgomalum.com/service/plain?text=" + artist + responseLyrics.lyrics;
 
       $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (response) {
+      }).then(function (response) {
 
         $(".image-cropper").css("background-image", "url(" + response.artists[0].strArtistThumb + ")");
         $("#artistBio").text(response.artists[0].strBiographyEN);
         var capitalizedName = capital_letter(artistNameArray[0])
         $("#artistName").text(capitalizedName);
-    
+
 
 
         queryURL = `https://api.lyrics.ovh/v1/${artist}/${songTitle}`;
-       
+
         $.ajax({
           url: queryURL,
           method: "GET"
         }).then(function (responseLyrics) {
-       
-       
-        queryURL = "https://www.purgomalum.com/service/plain?text=" + responseLyrics.lyrics;
 
 
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function (response) {
+          queryURL = "https://www.purgomalum.com/service/plain?text=" + responseLyrics.lyrics;
+
+
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).then(function (response) {
 
 
 
-        var lyricLocation = $('#lyricText')
-        lyricLocation.empty()
-        lyricLocation.attr("dataCensored", response)
-        lyricLocation.attr("dataUncensored", responseLyrics.lyrics)
-        lyricLocation.attr("state", "uncensored")
-        lyricLocation.text(responseLyrics.lyrics)
+            var lyricLocation = $('#lyricText')
+            lyricLocation.empty()
+            lyricLocation.attr("dataCensored", response)
+            lyricLocation.attr("dataUncensored", responseLyrics.lyrics)
+            lyricLocation.attr("state", "uncensored")
+            lyricLocation.text(responseLyrics.lyrics)
 
-        lyricHold = responseLyrics.lyrics
-        
+            lyricHold = responseLyrics.lyrics
 
-      }).then(function(response) {
-        var lyricLocation = $("#lyricText");
-        lyricLocation.empty();
-        lyricLocation.attr("dataCensored", response);
-        lyricLocation.attr("dataUncensored", responseLyrics.lyrics);
-        lyricLocation.attr("state", "uncensored");
-        lyricLocation.text(responseLyrics.lyrics);
-        lyricHold = responseLyrics.lyrics;
 
-        var settings = {
-          async: true,
-          crossDomain: true,
-          url: "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/",
-          method: "POST",
-          headers: {
-            "x-rapidapi-host": "twinword-emotion-analysis-v1.p.rapidapi.com",
-            "x-rapidapi-key":
-              "7d3b7b461bmsh4767c71572dc937p16d8f7jsn23f01c67289a",
-            "content-type": "application/x-www-form-urlencoded"
-          },
-          data: {
-            text: lyricHold
-          }
-        };
+          }).then(function (response) {
+            var lyricLocation = $("#lyricText");
+            lyricLocation.empty();
+            lyricLocation.attr("dataCensored", response);
+            lyricLocation.attr("dataUncensored", responseLyrics.lyrics);
+            lyricLocation.attr("state", "uncensored");
+            lyricLocation.text(responseLyrics.lyrics);
+            lyricHold = responseLyrics.lyrics;
 
-        $.ajax(settings).then(function(response) {
-          console.log(response);
-          meterFill(
-            response.emotion_scores.joy,
-            response.emotion_scores.suprise,
-            response.emotion_scores.fear,
-            response.emotion_scores.disgust,
-            response.emotion_scores.anger,
-            response.emotion_scores.sadness
-          );
-        });
-      });
-      
+            var settings = {
+              async: true,
+              crossDomain: true,
+              url: "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/",
+              method: "POST",
+              headers: {
+                "x-rapidapi-host": "twinword-emotion-analysis-v1.p.rapidapi.com",
+                "x-rapidapi-key":
+                  "7d3b7b461bmsh4767c71572dc937p16d8f7jsn23f01c67289a",
+                "content-type": "application/x-www-form-urlencoded"
+              },
+              data: {
+                text: lyricHold
+              }
+            };
+
+            $.ajax(settings).then(function (response) {
+              console.log(response);
+              meterFill(
+                response.emotion_scores.joy,
+                response.emotion_scores.suprise,
+                response.emotion_scores.fear,
+                response.emotion_scores.disgust,
+                response.emotion_scores.anger,
+                response.emotion_scores.sadness
+              );
+            });
+          });
+
         })
 
 
@@ -124,15 +124,15 @@ function displayArtistInfo(songTitle, artist) {
       console.log("response", response)
       var videoId = response.items[0].id.videoId
       console.log("videoId", videoId)
-      $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+      $("#videoOutPut").append(`<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
 
 
     })
 
 
 
-    });
-  };
+  });
+};
 
 
 //Function to capitalize the first letter of each word
@@ -151,9 +151,9 @@ function capital_letter(str) {
 //Function to display the lyrics on the page
 function displayLyrics() {
 
-    //Main content appears on the page
-    $("#mainContent").css("display", "block");
-    $("#moreContent").css("display", "block");
+  //Main content appears on the page
+  $("#mainContent").css("visibility", "visible");
+  $("#moreContent").css("visibility", "visible");
   var queryURL = "https://api.lyrics.ovh/v1/" + artistNameArray + "/" + songTitleArray + "/";
 
 
@@ -188,8 +188,8 @@ $("#submitButton").on("click", function (event) {
   var songTitle = $("#songTitleInput").val().trim();
 
   //Main content appears on the page
-  $("#mainContent").css("display", "flex");
-  $("#moreContent").css("display", "flex");
+  $("#mainContent").css("display", "block");
+  $("#moreContent").css("display", "block");
 
   $([document.documentElement, document.body]).animate({
     scrollTop: $("#mainContent").offset().top
@@ -198,6 +198,13 @@ $("#submitButton").on("click", function (event) {
   //Conditional to display modal prompting user to insert the needed information
   if (artist === "" || songTitle === "") {
     $(".bg-modal").css("display", "block");
+    $("#mainContent").css("display", "none");
+    $("#moreContent").css("display", "none");
+  } else {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#mainContent").offset().top
+      }, 2000);
   }
 
 
@@ -217,91 +224,26 @@ $("#submitButton").on("click", function (event) {
   displayArtistInfo(songTitle, artist);
 
   $("#profanityFilter").on("click", function () {
-    console.log("clicked")
+
     var state = $("#lyricText").attr("state")
     if (state === "uncensored") {
       $("#lyricText").attr("state", "censored")
       var censoredText = $("#lyricText").attr("dataCensored")
       $("#lyricText").text(censoredText)
-    } else {
+    }
+    else if (state === "censored") {
       $("#lyricText").attr("state", "uncensored")
-      var uncensoredText = $("#lyricText").attr("dataUncensored")
+      var censoredText = $("#lyricText").attr("dataUncensored")
       $("#lyricText").text(uncensoredText)
     }
-  })
-
-  //On click command for the submit button
-$("#submitButton").on("click", function(event) {
-  event.preventDefault();
-
-  var artist = $("#artistInput")
-    .val()
-    .trim();
-  var songTitle = $("#songTitleInput")
-    .val()
-    .trim();
-
-  //Main content appears on the page
-  $("#mainContent").css("display", "flex");
-  $("#moreContent").css("display", "flex");
-
-  //Conditional to display modal prompting user to insert the needed information
-  if (artist === "" || songTitle === "") {
-    $(".bg-modal").css("display", "block");
-    $("#mainContent").css("display", "none");
-    $("#moreContent").css("display", "none");
-  } else {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#mainContent").offset().top
-      }, 2000);
-    }
-    
-
-    $(".image-cropper").css("background-image", "url()");
-    $("#artistBio").empty();
-    $("#artistName").empty();
-    $("#lyricText").empty();
-    $("#artistInput").val("");
-    $("#songTitleInput").val("");
-    artistNameArray = []
-    artistNameArray.push(artist);
-    songTitleArray = [];
-    songTitleArray.push(songTitle);
-
-    
-    displayArtistInfo(songTitle, artist);
-    
-    $("#profanityFilter").on("click", function (){
-      
-      var state = $("#lyricText").attr("state")
-      if (state === "uncensored"){
-        $("#lyricText").attr("state", "censored")
-        var censoredText = $("#lyricText").attr("dataCensored")
-        $("#lyricText").text(censoredText)
-      } 
-      else if (state === "censored") {
-        $("#lyricText").attr("state", "uncensored")
-        var censoredText = $("#lyricText").attr("dataUncensored")
-        $("#lyricText").text(uncensoredText)
-      }
-    })
+  });
 });
-
-})
-})
 
 //On click command to close the modals
 $(".closeButton").on("click", function (event) {
   event.preventDefault();
 
   $(".bg-modal").css("display", "none");
-});
-
-$(".closeButton").on("click", function (event) {
-  event.preventDefault();
-
-  $(".bg-modal2").css("display", "none");
 });
 
 //Slide in left animation code
@@ -343,7 +285,7 @@ var disgustLocation = $("#disgust-meter");
 var angerLocation = $("#anger-meter");
 var sadnessLocation = $("sadness-meter");
 
-var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
+var meterFill = function (joy, suprise, fear, disgust, anger, sadness) {
   var jpixles = joy * 2200;
 
   joyLocation.animate({
@@ -403,6 +345,6 @@ $(document).ready(function () {
 
 //Hides form content until user clicks on the page
 
-$(document).on("click", function() {
+$(document).on("click", function () {
   $("#formContent").css("display", "flex");
 })
