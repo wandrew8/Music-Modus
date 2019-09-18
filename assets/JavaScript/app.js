@@ -68,6 +68,17 @@ function displayArtistInfo(songTitle, artist) {
       });
     });
   });
+  console.log("this is a test", artist + songTitle)
+    $.ajax({
+      url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + artist + songTitle + "&key=AIzaSyD-I609EBue7TuGbhT7_bn6PawQPIxN2wI&",
+      method: "GET"
+    }).then(function (response) {
+      console.log("response", response)
+      var videoId = response.items[0].id.videoId
+      console.log("videoId", videoId)
+      $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+
+    })
 }
 
 //Function to capitalize the first letter of each word
@@ -212,21 +223,21 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: jpixles > 250 ? 250 : jpixles + "px"
   });
-  joyLocation.css("background-color", "blue");
+  joyLocation.css("background-color", "#18dcff");
   var suppixles = suprise * 2200;
 
   supriseLocation.animate({
     width: "100%",
     height: suppixles > 250 ? 250 : suppixles + "px"
   });
-  supriseLocation.css("background-color", "blue");
+  supriseLocation.css("background-color", "#18dcff");
   var fpixles = fear * 2200;
 
   fearLocation.animate({
     width: "100%",
     height: fpixles > 250 ? 250 : fpixles + "px"
   });
-  fearLocation.css("background-color", "blue");
+  fearLocation.css("background-color", "#18dcff");
 
   var dpixles = disgust * 2200;
 
@@ -234,7 +245,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: dpixles > 250 ? 250 : dpixles + "px"
   });
-  disgustLocation.css("background-color", "blue");
+  disgustLocation.css("background-color", "#18dcff");
 
   var apixles = anger * 2200;
 
@@ -242,7 +253,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: apixles > 250 ? 250 : apixles + "px"
   });
-  angerLocation.css("background-color", "blue");
+  angerLocation.css("background-color", "#18dcff");
 
   var sadpixles = sadness * 2200;
 
@@ -250,7 +261,7 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
     width: "100%",
     height: sadpixles > 250 ? 250 : sadpixles + "px"
   });
-  sadnessLocation.css("background-color", "blue");
+  sadnessLocation.css("background-color", "#18dcff");
 };
 
 //Hides opening animation on click of mouse
