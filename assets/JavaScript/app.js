@@ -68,6 +68,18 @@ function displayArtistInfo(songTitle, artist) {
       });
     });
   });
+  console.log("this is a test", artist + songTitle)
+    $.ajax({
+      url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + artist + songTitle + "&key=AIzaSyD-I609EBue7TuGbhT7_bn6PawQPIxN2wI&",
+      method: "GET"
+    }).then(function (response) {
+      console.log("response", response)
+      var videoId = response.items[0].id.videoId
+      console.log("videoId", videoId)
+      $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+
+
+    })
 }
 
 //Function to capitalize the first letter of each word
