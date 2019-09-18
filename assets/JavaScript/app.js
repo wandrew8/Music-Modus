@@ -289,7 +289,6 @@ $("#submitButton").on("click", function(event) {
 });
 
 })
-})
 
 //On click command to close the modals
 $(".closeButton").on("click", function (event) {
