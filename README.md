@@ -7,22 +7,13 @@
 
 One to two paragraph statement about your product and what it does.
 
-Music Modus is an interactive web application built with purpose of supplying the user with easy to access information as it relates to the overall temperament and vulgarity of their music preferences.
+Music Modus is an interactive web based application built with purpose of providing a resource for users to learn more about the artists and the songs that they love. This application takes the users' input from the search field and returns information on the artist, a censored or uncensored copy of the lyrics, and displays a YouTube video of the artist and their song. 
 
-![](header.png)
+supplying the user with easy to access information as it relates to their listening preferences. Additionally, we wanted to provide a resource for listeners to learn more about the artists and the songs that they love. 
 
-## Installation
+![](heade
 
-OS X & Linux:
 
-```sh
-npm install my-crazy-module --save
-```
-
-Windows:
-
-```sh
-edit autoexec.bat
 ```
 
 ## Usage example
