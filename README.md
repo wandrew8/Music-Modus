@@ -2,65 +2,26 @@
 >Consumption of music and information.
 
 
+[Deployed Site](https://wandrew8.github.io/ProjectOne/)
+
 Music Modus is an interactive web based application built with purpose of providing a resource for users to learn more about the artists and the songs that they love. This application takes the users' input from the search field and returns information on the artist, a censored or uncensored copy of the lyrics, and displays a YouTube video of the artist and their song. 
 
 
-
-<!-- ![](heade
-
-
-```
-
-## Usage example
-
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
-
-_For more examples and usage, please refer to the [Wiki][wiki]._
-
 ## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+To use this application simply open the deployed link and enjoy all of the information that is now at your fingertips. You can now search, read, and listen the way that you want to. 
 
-```sh
-make install
-npm test
-```
 
-## Release History
+- Links to contributor github profiles
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
+[Andrew Weiss](https://github.com/wandrew8)
 
-## Meta
+[Collin Wheetman](https://github.com/cwheets)
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+[Neha Lal](https://github.com/lalaneha)
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[Chris Bortel](https://github.com/Bort91)
 
-## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-<!-- [wiki]: https://github.com/yourname/yourproject/wiki -->
