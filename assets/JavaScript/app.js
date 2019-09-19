@@ -89,7 +89,11 @@ function displayArtistInfo(songTitle, artist) {
       var videoId = response.items[0].id.videoId
       console.log("videoId", videoId)
 
+<<<<<<< HEAD
       $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+=======
+      $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}?" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+>>>>>>> 91397590d4dd9d6dfccc49ded411d8560d72140f
 
     })
    
@@ -271,14 +275,24 @@ var meterFill = function(joy, suprise, fear, disgust, anger, sadness) {
 
 };
 
-//Hides opening animation on click of mouse
+//Hides opening animation on click of mouse for full screen
 $("#openingAnimationContainer").on("click", function() {
   $("#openingAnimationContainer").slideUp("slow");
 });
 
-//Fades in text "click to begin" within opening animation
+//Hides opening animation on click of mouse for small screens
+$("#openingAnimationTwo").on("click", function() {
+  $("#openingAnimationTwo").slideUp("slow");
+});
+
+//Fades in text "click to begin" within opening animation full screen
 $(document).ready(function() {
   $("#openingClick").fadeIn(5000);
+});
+
+//Fades in text "click to begin" within opening animation full screen
+$(document).ready(function() {
+  $("#openingClick2").fadeIn(5000);
 });
 
 //Hides form content until user clicks on the page

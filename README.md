@@ -1,17 +1,12 @@
-# ProjectOne# Music Modus 
-> Short blurb about what your product does.
+# Music Modus 
+>Consumption of music and information.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
-One to two paragraph statement about your product and what it does.
 
 Music Modus is an interactive web based application built with purpose of providing a resource for users to learn more about the artists and the songs that they love. This application takes the users' input from the search field and returns information on the artist, a censored or uncensored copy of the lyrics, and displays a YouTube video of the artist and their song. 
 
-supplying the user with easy to access information as it relates to their listening preferences. Additionally, we wanted to provide a resource for listeners to learn more about the artists and the songs that they love. 
 
-![](heade
+
+<!-- ![](heade
 
 
 ```
@@ -68,4 +63,4 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+<!-- [wiki]: https://github.com/yourname/yourproject/wiki -->

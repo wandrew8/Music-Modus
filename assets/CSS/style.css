@@ -1,3 +1,5 @@
+/* General Styling */
+
 h1 {
     font-family: 'Hepta Slab', serif;
     padding-top: 60px;
@@ -27,7 +29,7 @@ p {
     font-family: 'Lora', serif;
 }
 
-/*************** Opening Animation ***************/
+/*************** Opening Animation Large Screens ***************/
 
 #openingAnimationContainer {
     height: 100vh;
@@ -38,7 +40,8 @@ p {
 #openingClick {
     position: absolute;
     bottom: 0;
-    left: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: none;
 
 }
@@ -127,6 +130,106 @@ p {
     }
 }
 
+/*************** Opening Animation Small Screens ***************/
+
+#openingAnimationTwo {
+    height: 100vh;
+    background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
+    width: 100%;
+    display: none;
+}
+
+#openingClick2 {
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    display: none;
+
+}
+
+#logo2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#logo2 path:nth-child(2) { 
+    stroke-dasharray: 669px;
+    stroke-dashoffset: 669px;
+    animation: line-anim 2s ease forwards;
+} 
+
+#logo2 path:nth-child(3) {
+    stroke-dasharray: 484px;
+    stroke-dashoffset: 484px;
+    animation: line-anim 2s ease forwards 0.2s;
+
+}
+
+#logo2 path:nth-child(4) {
+    stroke-dasharray: 490px;
+    stroke-dashoffset: 490px;
+    animation: line-anim 2s ease forwards 0.4s;
+}
+
+#logo2 path:nth-child(5) {
+    stroke-dasharray: 215px;
+    stroke-dashoffset: 215px;
+    animation: line-anim 2s ease forwards 0.6s;
+}
+
+#logo2 path:nth-child(6) {
+    stroke-dasharray: 446px;
+    stroke-dashoffset: 446px;
+    animation: line-anim 2s ease forwards 0.8s;
+}
+
+#logo2 path:nth-child(7) {
+    stroke-dasharray: 669px;
+    stroke-dashoffset: 669px;
+    animation: line-anim 2s ease forwards 1s;
+}
+
+#logo2 path:nth-child(8) {
+    stroke-dasharray: 587px;
+    stroke-dashoffset: 587px;
+    animation: line-anim 2s ease forwards 1.2s;
+}
+
+#logo2 path:nth-child(9) {
+    stroke-dasharray: 603px;
+    stroke-dashoffset: 603px;
+    animation: line-anim 2s ease forwards 1.4s;
+}
+
+#logo2 path:nth-child(10) {
+    stroke-dasharray: 484px;
+    stroke-dashoffset: 484px;
+    animation: line-anim 2s ease forwards 1.6s;
+}
+
+#logo2 path:nth-child(11) {
+    stroke-dasharray: 490px;
+    stroke-dashoffset: 490px;
+    animation: line-anim 2s ease forwards 1.8s;
+}
+
+@keyframes line-anim{
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill{
+    from {
+        fill: transparent;
+    }
+    to{
+        fill: #fff;
+    }
+}
+
 
 /*************** Header and form ***************/
 
@@ -154,7 +257,6 @@ p {
 
 #formContent {
     display: none;
-
 }
 
 #mainContent {
@@ -165,75 +267,6 @@ p {
     display: none;
 }
 
-/***************Toggle Button***************/
-
-.filter {
-    display: inline-block;
-    color: #495057;
-    align-content: center;
-    padding-left: 10px;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked+.slider {
-    background-color: #18dcff;
-}
-
-input:focus+.slider {
-    box-shadow: 0 0 1px #18dcff;
-}
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
 
 /***************Artist Info Bar***************/
 
@@ -311,6 +344,8 @@ input:checked+.slider:before {
 }
 .meters {
     max-height: 325px;
+    width: 15%;
+    float: left;
 }
 
 /* Modal Styling */
@@ -416,23 +451,15 @@ iframe {
 
 /* Mood */
 
+.meters {
+    height: 350px;
+    text-align: center;
+}
+
 .moodRow {
     height: 350px;
 }
 
-#emotionBox1 {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    
-}
-
-#emotionBox2 {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    
-}
 .emptySpace {
     width:100%;
     height: 100%;
@@ -447,6 +474,15 @@ iframe {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         background: linear-gradient(-45deg, #7d5fff, #ff9f1a);
     }    
+
+}
+
+@media screen and (max-width: 1200px) {
+     #songMeter {
+         display: none;
+     }
+
+}
 
 
 /*Media - Ipad Pro*/
@@ -489,9 +525,17 @@ iframe {
         width: 100%;
         font-size: 1.5em;
     }
+
+    #openingAnimationContainer {
+        display: none;
+    }
+
+    #openingAnimationTwo {
+        display: flex;
+    }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     .header-container {
         height: 100%vh;
         width: 100%vw;
@@ -529,6 +573,11 @@ iframe {
         width: 100%;
         font-size: 1em;
     }
+
+    #songMeter {
+        display: none;
+    }    
+    
 }
 
 @media screen and (max-width: 600px) {
@@ -568,6 +617,8 @@ iframe {
         width: 60%;
         font-size: 1em;
     }
+
+    
 }
 
 /*Media - Iphone X*/
