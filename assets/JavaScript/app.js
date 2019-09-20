@@ -89,7 +89,11 @@ function displayArtistInfo(songTitle, artist) {
       var videoId = response.items[0].id.videoId
       console.log("videoId", videoId)
 
+<<<<<<< HEAD
+      $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+=======
       $("#videoOutPut").append(`<iframe width="79%" height="78%" src="https://www.youtube.com/embed/${videoId}?" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+>>>>>>> 91397590d4dd9d6dfccc49ded411d8560d72140f
 
     })
    
